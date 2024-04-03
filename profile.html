@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="./assets/styles/profile.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-logo">
+          <p id="logo">Graphql</p>
+        </div>
+        <div class="navbar-links">
+          <p id="username"></p>
+          <button id="logoutBtn">Logout</button>
+        </div>
+      </nav>
+
+<div class="container">
+    <div class="wrapper">
+
+        <div class="grid">
+            <div id="username"></div>
+                <div class="col">
+                    <div id="project-info" class="card">
+                        <p id="profile">Profile</p>
+                        <p>Name: <span id="name" class="info"></span></p>
+                        <p>Email: <span id="email" class="info"></span></p>
+                        <p>Campus: <span id="campus" class="info"></span></p>
+                        <!-- <div id="project-list"></div> -->
+                    </div>
+                </div>
+            <div class="row">
+                <div id="user-info" class="card">
+                    <div id="user-container">
+                        <div class="user-row">
+                            <div class="user-container">
+                                <p>ID</p>
+                                <div id="id" class="user-text"></div>
+                            </div>
+
+                            <div class="user-container">
+                                <p>Avg Grade</p>
+                                <div id="grade" class="user-text"></div>
+                            </div>
+                        </div>
+                        <div class="user-row">
+                            <div class="user-container">
+                                <p>XP</p>
+                                <div id="xp" class="user-text"></div>
+                            </div>
+                            <!-- <div id="user-level" class="user-container">
+                                <p>Level</p>
+                                <div id="level" class="user-text"></div>
+                            </div> -->
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div id="bar-chart" class="card">
+                    <div class="label">XP by Project</div>
+                    <div class="bar-info">
+                        <div id="bar-project"></div>
+                        <div id="bar-xp"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div id="line-chart" class="card">Progress over time</div>
+                <div id="audit-ratio" class="card">
+                    <p>Audit Ratio</p>
+                    <div id="ratio"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+  <script type="module" src="./assets/scripts/profile.js"></script>
+</body>
+</html>

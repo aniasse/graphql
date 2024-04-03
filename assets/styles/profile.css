@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400');
+
+body, html {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #1d243d;
+    background-position: center;
+    padding: 0px;
+    margin: 0px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%233C3F44' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23555555'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+    /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23202E44' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%233C4855'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E"); */
+}
+
+.navbar {
+  background-color: rgb(33, 41, 66);
+  color: #fff; 
+  height: 7%;
+  display: flex; /* Affichage en ligne des éléments */
+  justify-content: space-between; /* Alignement horizontal */
+  align-items: center; /* Alignement vertical */
+  position: fixed; /* Fixe la position de la navbar */
+  top: 0; /* Position au sommet de la page */
+  width: 100%; /* Largeur de la navbar */
+  z-index: 1000; /* Indice de profondeur pour s'assurer que la navbar est au-dessus du contenu */
+}
+
+/* Style du logo */
+#logo {
+  color: #fff; /* Couleur du texte */
+  font-weight: bold; /* Gras */
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+/* Style des liens dans la navbar */
+
+.navbar-links {
+  list-style: none; /* Pas de puces */
+  margin: 0; /* Marge zéro */
+  padding: 0; /* Espacement zéro */
+  display: flex; /* Affichage en ligne des éléments */
+}
+
+/* Style des liens */
+#username{
+  margin-right: 30px; /* Marge à droite */
+  color: #79a6fe;
+}
+
+
+
+/* Style du bouton de déconnexion */
+#logoutBtn {
+  background-color: #8BD17C; /* Couleur de fond */
+  color: #333; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  padding: 5px 10px; /* Espacement intérieur */
+  margin: 10px;
+  border-radius: 5px; /* Coins arrondis */
+  cursor: pointer; /* Curseur pointer */
+}
+
+/* Style du bouton de déconnexion au survol */
+#logoutBtn:hover {
+  background-color: #79a6fe; /* Couleur de fond au survol */
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 110vh;
+  }
+  
+  .wrapper {
+    height: 110vh;
+    margin-top: 2%;
+    display: flex;
+  
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  
+    gap: 1.5em;
+  }
+  
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+  
+    /* display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1em;
+      grid-auto-rows: minmax(200px, auto); */
+  
+  }
+  
+  
+  .row {
+    display: flex;
+    gap: 1em;
+    min-height: 180px;
+    
+    
+  
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card {
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    min-height: 180px;
+    min-width: 220px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+  }
+  
+  
+  
+  #user-info {
+    width: 40%;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+    .info{
+      color: #8BD17C;
+      font-size: 1em;
+      font-weight: bold;
+      display: contents;
+    }
+  
+  
+  #user-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  
+  }
+  
+  
+  .user-row {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .user-container {
+    background-color: rgba(255, 255, 255, 0.5); /* Blanc avec une transparence de 50% */
+    color: rgb(83 83 83);
+    padding: 8px;
+    border-radius: 20px;
+    height: 70px;
+    width: 95px;
+    font-size: .75em;
+  
+  }
+  
+  .user-container p {
+    padding-left: 4px;
+    padding-bottom: 2px;
+  }
+  
+  .user-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2em;
+    /* color: white; */
+    /* color: rgba(31, 34, 48, 1); */
+    color: rgb(64, 64, 64);
+  
+  }
+  
+  /* #user-level {
+      background: #79a6fe;
+      color: white;
+    } */
+  
+  #bar-chart {
+    width: 60%;
+    min-width: 700px;
+    color: #fff;
+  
+  }
+  
+  .bar {
+    fill: #8BD17C;
+    padding: -10px;
+    
+  }
+  
+  .bar:hover {
+    fill: #79a6fe; 
+  }
+  
+  
+  #project-info p{
+    color: #fff;
+  }
+  
+  #profile{
+    align-self: center;
+    font-weight: bold; /* Gras */
+    
+  }
+  
+  .project-container {
+    background: rgba(236, 214, 238, 1);
+    height: fit-content;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: .9em;
+  }
+  
+  .project-name {
+    font-weight: bold;
+    color: rgb(64, 64, 64);
+  }
+  
+  .project-date,
+  .project-xp {
+    color: rgb(64, 64, 64);
+  
+  }
+  
+  #audit-ratio {
+    width: fit-content;
+    /* background-color: rgb(53, 57, 68); */
+    background-color: rgba(255, 255, 255, 0.1); /* Blanc avec une transparence de 50% */
+    color: rgba(255, 255, 255, 1);
+    position: relative;
+    /* min-width: 240; */
+  }
+  
+  #audit-ratio p {
+    padding-bottom: 35px;
+    
+  }
+  
+  .audit-text {
+    color: rgba(255, 255, 255, 1);
+    font-size: 0.8em;
+  }
+  
+  #ratio {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 40px;
+    font-size: 60px;
+  
+  }
+  
+  #ratio-text {
+    font-size: 50px;
+  }
+  
+  #line-chart {
+    min-width: 800px;
+    color: rgba(255, 255, 255, 1);
+  
+  }
+  
+  .circle-text {
+    font-size: .7em;
+    fill: rgb(243, 241, 241);
+  }
+  
+  .name-text {
+    fill: rgb(243, 241, 241);
+    font-size: .8em;
+  
+  }
+  
+  .kb-text {
+    fill: rgba(227, 195, 231, 1);
+    font-size: .10em;
+  }
+  
+  rect {
+    fill: #8BD17C;
+  }
+  
+  circle {
+    fill: #8BD17C;
+  }
+  
+  
+  #hide {
+    color: transparent;
+  }
