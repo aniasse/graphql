@@ -302,3 +302,133 @@ body, html {
   #hide {
     color: transparent;
   }
+
+  /* Media queries pour les téléphones */
+@media only screen and (max-width: 600px) {
+  .navbar {
+    background-color: rgb(33, 41, 66);
+    color: #fff; 
+    height: 7%;
+    display: flex; /* Affichage en ligne des éléments */
+    justify-content: space-between; /* Alignement horizontal */
+    align-items: center; /* Alignement vertical */
+    position: fixed; /* Fixe la position de la navbar */
+    top: 0; /* Position au sommet de la page */
+    width: 100%; /* Largeur de la navbar */
+    z-index: 1000; /* Indice de profondeur pour s'assurer que la navbar est au-dessus du contenu */
+  }
+  
+  .navbar-links {
+      margin-top: 20px; /* Marge supérieure */
+  }
+  #logo {
+      margin-bottom: 20px; /* Marge inférieure */
+  }
+  .container {
+    /* align-items: center; */
+    display: contents;
+    flex-direction: column;
+    height: 160vh;
+    margin-top: 20%;
+  }
+  
+  .wrapper {
+    height: 230vh;
+    margin-top: 6%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+  
+    gap: 1.5em;
+  }
+  .grid,
+  .row,
+  .column {
+      flex-direction: column; /* Affichage en colonne */
+      width: 80%;
+  }
+  #user-info {
+      width: 80%; /* Largeur réduite */
+  }
+  #bar-chart,
+  #line-chart {
+      width: 90%; /* Largeur réduite */
+  }
+  #ratio {
+    position: absolute;
+    /* left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 40px;
+    font-size: 60px; */
+  
+  }
+  #audit-ratio {
+    width: fit-content;
+    /* background-color: rgb(53, 57, 68); */
+    background-color: rgba(255, 255, 255, 0.1); /* Blanc avec une transparence de 50% */
+    color: rgba(255, 255, 255, 1);
+    position: relative;
+    /* min-width: 240; */
+  }
+  
+  #audit-ratio p {
+    padding-bottom: 35px;
+    
+  }
+  .grid {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+
+  
+    /* display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 1em;
+      grid-auto-rows: minmax(200px, auto); */
+  
+  }
+  
+  
+  .row {
+    width: 80%;
+    display: flex;
+    /* min-height: 150px; */
+    
+    
+  
+  }
+  
+  .column {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card {
+    width: 80%;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* min-height: 180px;
+    min-width: 220px; */
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+  }
+  #bar-chart {
+    width: 60%;
+    color: #fff;
+  
+  }
+  
+  .bar {
+    fill: #8BD17C;
+    padding: -10px;
+    
+  }
+
+  
+}
