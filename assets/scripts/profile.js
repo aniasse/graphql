@@ -26,7 +26,7 @@ var queryData = {
     }
   }
   transaction(
-    where: {_and: [{userId: {_eq: $userId}}, {user: {id: {_eq: $userId}}}, {object: {type: {_eq: "project"}}}, {type: {_eq: "xp"}}, {amount: {_gt: 4999}}, {amount: {_neq: 14700}}]}
+    where: {_and: [{userId: {_eq: $userId}}, {user: {id: {_eq: $userId}}}, {object: {type: {_eq: "project"}}},{type: {_eq: "xp"}}, {amount: {_gt: 4999}}, {amount: {_neq: 14700}}]}
     order_by: {createdAt: asc}
   ) {
     amount
@@ -42,6 +42,20 @@ var queryData = {
   ) {
     amount
   }
+  allxp: transaction(
+    where: {
+      event: { object: { type: { _eq: "module" } } }
+      type: { _eq: "xp" }
+    })
+    {
+      amount
+      type
+      path
+      createdAt
+      object{
+        name
+      }
+    }
   auditRatioDown: transaction(
     where: {_and: [{userId: {_eq: $userId}}, {type: {_eq: "down"}}]}
     order_by: {createdAt: desc}
@@ -60,6 +74,16 @@ var queryData = {
       type
     }
   }
+  level: transaction(
+    order_by: {amount :desc}
+    limit: 1
+    where: {
+      type: { _eq: "level" },
+      _or: {event: {object: {name: {_eq: "Div 01"}}}}
+    })
+    {
+      amount
+    }
 }
 
 `}
@@ -142,14 +166,14 @@ async function getUserId(token) {
   
 //****************************************************************************************** */
   function getTotalXp(data) {
-    let xp = 0
+    console.log(data);
+    let xp = 0;
     data.forEach(({ amount }) => {
-      xp += amount
-      console.log('amount: ', amount)
+        xp += amount;
+        console.log('amount: ', amount);
     });
-    console.log('xp ', xp)
-    var totalXp = Math.round((xp + 800) / 1000)
-    return totalXp + 4
+    var totalXp = Math.floor((xp + 500) / 1000); // Utiliser Math.floor() au lieu de Math.round()
+    return totalXp;
   }
   
   
@@ -430,6 +454,7 @@ async function getUserId(token) {
   resp.then((result) => {
 
     console.log("resultttttttttttttttttttttt", result)
+// sourcery skip: avoid-using-var
     var username = result.data.user[0].login
     console.log(username)
 
@@ -444,11 +469,11 @@ async function getUserId(token) {
         }
       })
     }
-    console.log("all transactions", transactionsData)
-    const attrs = result.data.user[0].attrs;
-    const email = attrs.email;
-    const lastName = attrs.lastName
-    const firstName = attrs.firstName
+    const levv = result.data.level[0].amount
+    const lev = document.querySelector('#level')
+    lev.innerText = levv
+    const {attrs} = result.data.user[0];
+    const {email, lastName, firstName} = attrs;
     const nm = document.querySelector('#name')
     const mail = document.querySelector('#email')
     mail.innerText = email
@@ -456,7 +481,7 @@ async function getUserId(token) {
 
     console.log(email);
 
-    user(result.data.user, result.data.linegraph)
+    user(result.data.user, result.data.allxp)
     auditRatio(result.data.auditRatioDown, result.data.auditRatioUp)
     createBarChart(transactions)
     createLineChart(result.data.linegraph)
