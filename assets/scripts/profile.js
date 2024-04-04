@@ -247,7 +247,7 @@ async function getUserId(token) {
     document.getElementById('audit-ratio').appendChild(svg);
   }
   //********************************************************************************************* */
-  function createLineChart(data) {
+  function createLineChart(data, trans) {
     console.log("length", data.length)
   
     const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -342,7 +342,7 @@ async function getUserId(token) {
         })
       })
     });
-    const currXp = getTotalXp(data)
+    const currXp = getTotalXp(trans)
     var totalNode = document.createTextNode('Total');
     const total = document.createElementNS('http://www.w3.org/2000/svg', 'text');
     total.setAttribute('x', 465)
@@ -484,7 +484,7 @@ async function getUserId(token) {
     user(result.data.user, result.data.allxp)
     auditRatio(result.data.auditRatioDown, result.data.auditRatioUp)
     createBarChart(transactions)
-    createLineChart(result.data.linegraph)
+    createLineChart(result.data.linegraph, result.data.allxp )
   })
   .catch((error) => console.log('error', error));
   
