@@ -6,6 +6,8 @@ if (!jwt) {
     
 }
 
+const userId = await getUserId(jwt);
+
 var transactionsData = []
 
 var queryData = {
@@ -66,7 +68,7 @@ var queryData = {
   async function postData(url = '', query = {}) {
     const token = window.localStorage.getItem('jwt');
     console.log("token", token)
-    const userId = await getUserId(token);
+    // const userId = await getUserId(token);
   
     const variables = {
       userId: userId,
