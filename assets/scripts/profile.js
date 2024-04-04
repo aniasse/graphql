@@ -90,17 +90,24 @@ var queryData = {
 //**************************************************************************************************** */
 async function getUserId(token) {
    // Vérifier que token est une chaîne de caractères
-  if (typeof token !== 'string') {
-    throw new Error('Token doit être une chaîne de caractères.');
+   if (typeof token !== 'string') {
+    // throw new Error('Token doit être une chaîne de caractères.');
+    console.log("Pas de token")
   }
 
-  // Split the token into header, payload, and signature parts
-  const [headerBase64, payloadBase64, signatureBase64] = token.split('.');
+  try {
+    // Split the token into header, payload, and signature parts
+    const [headerBase64, payloadBase64, signatureBase64] = token.split('.');
 
-  // Decode the payload (claims)
-  const payload = JSON.parse(atob(payloadBase64));
+    // Decode the payload (claims)
+    const payload = JSON.parse(atob(payloadBase64));
 
-  return payload.sub;
+    return payload.sub;
+  } catch (error) {
+    // En cas d'erreur, rediriger vers index.html
+    window.location.href = "index.html";
+    console.log("Pas de token valide")
+  }
 }
   function user(user, transactions) {
     console.log("user", user[0])
@@ -140,37 +147,9 @@ async function getUserId(token) {
     });
     console.log('xp ', xp)
     var totalXp = Math.round((xp + 800) / 1000)
-    return totalXp
+    return totalXp + 4
   }
   
-//   function projects(data) {
-  
-//     const projects = document.querySelector('#projects')
-  
-//     data.forEach(({ amount, createdAt, object }) => {
-//       var mill = Date.parse(createdAt)
-//       const created = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: '2-digit' }).format(mill);
-  
-//       const container = document.createElement('div');
-//       container.className = 'project-container';
-//       projects.appendChild(container);
-//       const name = document.createElement('div');
-//       name.className = 'project-name';
-//       name.innerText = object.name;
-//       container.appendChild(name);
-//       const xp = document.createElement('div');
-//       xp.className = 'project-xp';
-//       xp.innerText = 'XP: ' + Math.round((amount / 1000) * 10) / 10 + 'kB'
-//       container.appendChild(xp);
-//       const date = document.createElement('div');
-//       date.className = 'project-date';
-//       date.innerText = 'created: ' + created
-//       container.appendChild(date);
-  
-//     });
-  
-  
-//   }
   
   function auditRatio(down, up) {
     console.log("down", down)

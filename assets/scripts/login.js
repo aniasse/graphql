@@ -5,11 +5,31 @@ function customBtoa(input) {
   
   
   document.addEventListener("DOMContentLoaded", async function () {
-    const jwt = localStorage.getItem("jwt");
+
+   const token = localStorage.getItem("jwt");
+       // Vérifier que token est une chaîne de caractères
+  if (typeof token !== 'string') {
+    // throw new Error('Token doit être une chaîne de caractères.');
+    console.log("Pas de token")
+  }
+
+  try {
+    // Split the token into header, payload, and signature parts
+    const [headerBase64, payloadBase64, signatureBase64] = token.split('.');
+
+    // Decode the payload (claims)
+    const payload = JSON.parse(atob(payloadBase64));
+
+    window.location.href = "profile.html";
+  } catch (error) {
+    // En cas d'erreur, rediriger vers index.html
+    // throw new Error('Pas de token valide');
+    console.log("Pas de token valide")
+  }
   
-    if (jwt) {
-      window.location.href = "profile.html";
-    }
+    // if (jwt) {
+    //   window.location.href = "profile.html";
+    // }
   
     document
       .getElementById("loginForm")
