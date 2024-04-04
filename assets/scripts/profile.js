@@ -2,7 +2,7 @@ const jwt = localStorage.getItem('jwt');
 
 if (!jwt) {
     // window.location.assign('index.html');
-    window.location.href = "index.html";
+    window.location.href = "/";
     
 }
 
@@ -107,7 +107,7 @@ async function getUserId(token) {
     return payload.sub;
   } catch (error) {
     // En cas d'erreur, rediriger vers index.html
-    window.location.href = "index.html";
+    window.location.href = "/";
     console.log("Pas de token valide")
   }
 }
